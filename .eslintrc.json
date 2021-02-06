@@ -1,0 +1,55 @@
+{
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "jsdoc/check-param-names": "error",
+    "jsdoc/check-tag-names": "error",
+    "jsdoc/check-types": "error",
+    "jsdoc/newline-after-description": "error",
+    "jsdoc/no-undefined-types": "off",
+    "jsdoc/require-description-complete-sentence": "off",
+    "jsdoc/require-example": "off",
+    "jsdoc/require-hyphen-before-param-description": "off",
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-param-name": "error",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/require-returns-type": "error",
+    "jsdoc/valid-types": "error",
+
+    "valid-jsdoc": "off",
+    "no-case-declarations": "off"
+  },
+  "ignorePatterns": ["lib/**/*.js"],
+  "settings": {
+    "jsdoc": {
+      "tagNamePreference": {
+        "augments": "extends"
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "plugins": ["jsdoc"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "es2020": true
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts"],
+      "extends": [
+        "eslint:recommended"
+      ],
+      "globals": { "Atomics": "readonly", "SharedArrayBuffer": "readonly" },
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+      },
+      "plugins": ["jsdoc"]
+    }
+  ]
+}

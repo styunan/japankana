@@ -1,1 +1,1 @@
-# fast-yu
+# japankana

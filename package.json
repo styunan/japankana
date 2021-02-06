@@ -1,0 +1,72 @@
+{
+  "name": "japankana",
+  "version": "1.0.0",
+  "description": "Japanese Kanji to Katakana",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . japankana --platform win32 --arch x64 --icon=japankana256.ico --overwrite --asar --out dist/",
+    "package": "electron-installer-windows --src dist/japankana-win32-x64/ --icon=japankana256.ico --dest dist/installers/",
+    "make": "electron-forge make",
+    "import": "electron-forge import"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/styunan/japankana.git"
+  },
+  "keywords": [
+    "japankana",
+    "Japanese",
+    "Kanji",
+    "Katakana"
+  ],
+  "author": "styunan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/styunan/japankana/issues"
+  },
+  "homepage": "https://github.com/styunan/japankana#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^12.0.2",
+    "eslint": "^7.22.0",
+    "eslint-plugin-jsdoc": "^31.6.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-window-state": "^5.0.3",
+    "kuroshiro": "^1.1.2",
+    "kuroshiro-analyzer-kuromoji": "^1.1.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "japankana"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
