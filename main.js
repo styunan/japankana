@@ -26,7 +26,7 @@ function createWindow() {
     maxWidth: width,
     autoHideMenuBar: true,
     zoomToPageWidth: false,
-    icon: path.join(__dirname, "japankana.ico"),
+    icon: path.join(__dirname, "assets/icons/japankana.ico"),
     webPreferences: {
       devTools: false,
       nodeIntegration: true,

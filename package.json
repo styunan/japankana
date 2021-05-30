@@ -1,10 +1,89 @@
 {
   "name": "japankana",
-  "version": "1.0.1",
+  "productName": "japankana",
+  "version": "1.0.2",
   "description": "Japanese Kanji to Katakana",
   "main": "main.js",
+  "icon": "assets/icons/japankana256.ico",
+  "build": {
+    "files": [
+      "!.git${/*}",
+      "!.vscode${/*}",
+      "!.github${/*}",
+      "!dist${/*}",
+      "!**.md",
+      "!**.eslintrc.**",
+      "!**.gitignore",
+      "!yarn.lock",
+      "!package-lock.json",
+      "!assets/imgs${/*}",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme,test,__tests__,tests,powered-test,example,examples,*.d.ts}",
+      "!**/node_modules/.bin",
+      "!**/*.{o,hprof,orig,pyc,pyo,rbc}",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}"
+    ],
+    "appId": "styunan.japankana",
+    "linux": {
+      "icon": "assets/icons/japankana256.ico",
+      "category": "Japanese Kanji to Katakana",
+      "target": [
+        "deb",
+        "freebsd",
+        "rpm",
+        "AppImage"
+      ]
+    },
+    "mac": {
+      "target": {
+        "target": "default",
+        "arch": ["arm64", "x64"]
+      },
+      "icon": "assets/icons/japankana256.ico",
+      "category": "Japanese Kanji to Katakana"
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-Setup.${ext}"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "portable",
+        "nsis"
+      ],
+      "icon": "assets/icons/japankana256.ico",
+      "publisherName": "CN=2B3D4037-FF2E-4C36-84A6-CFF49F585C0C",
+      "artifactName": "${productName}-${version}.${ext}"
+    },
+    "appx": {
+      "displayName": "sleek - Todo.txt app for Windows, free and open-source",
+      "identityName": "17450RobinAhle.sleektodomanager",
+      "publisher": "CN=2B3D4037-FF2E-4C36-84A6-CFF49F585C0C",
+      "publisherDisplayName": "Robin Ahle",
+      "applicationId": "styunan.japankana"
+    }
+  },
+  "appImage": {
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "rpm": {
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "deb": {
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "freebsd": {
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
   "scripts": {
     "start": "electron .",
+    "build:windows": "electron-builder -w --publish never",
+    "build:macos": "electron-builder -m --publish never",
+    "build:linux": "electron-builder -l --publish never",
+    "build:appx": "electron-builder -w appx --publish never",
+    "build:pacman": "electron-builder -l pacman --publish never",
+    "build:appimage": "electron-builder -l AppImage --publish never",
+    "pack": "electron-builder --dir",
     "build": "electron-packager . japankana --platform win32 --arch x64 --icon=japankana256.ico --overwrite --asar --out dist/",
     "package": "electron-installer-windows --src dist/japankana-win32-x64/ --icon=japankana256.ico --dest dist/installers/",
     "make": "electron-forge make",
@@ -16,11 +95,13 @@
   },
   "keywords": [
     "japankana",
+    "japanhr",
     "Japanese",
     "Kanji",
     "Katakana"
   ],
   "author": "styunan",
+  "copyright": "Copyright © 2021 ${author}",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/styunan/japankana/issues"
