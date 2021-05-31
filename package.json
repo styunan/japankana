@@ -15,10 +15,16 @@
       "!**.eslintrc.**",
       "!**.gitignore",
       "!yarn.lock",
+      "!LICENSE",
       "!package-lock.json",
       "!assets/imgs${/*}",
       "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme,test,__tests__,tests,powered-test,example,examples,*.d.ts}",
       "!**/node_modules/.bin",
+      "!**/node_modules/eslint*",
+      "!**/node_modules/electron-installer-debian",
+      "!**/node_modules/electron-installer-redhat",
+      "!**/node_modules/electron-packager",
+      "!**/node_modules/electron-winstaller",
       "!**/*.{o,hprof,orig,pyc,pyo,rbc}",
       "!**/._*",
       "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}"
@@ -52,14 +58,11 @@
         "nsis"
       ],
       "icon": "assets/icons/japankana256.ico",
-      "publisherName": "CN=2B3D4037-FF2E-4C36-84A6-CFF49F585C0C",
       "artifactName": "${productName}-${version}.${ext}"
     },
     "appx": {
-      "displayName": "sleek - Todo.txt app for Windows, free and open-source",
-      "identityName": "17450RobinAhle.sleektodomanager",
-      "publisher": "CN=2B3D4037-FF2E-4C36-84A6-CFF49F585C0C",
-      "publisherDisplayName": "Robin Ahle",
+      "displayName": "sleek - japankana app for Windows",
+      "identityName": "styunan.japankana",
       "applicationId": "styunan.japankana"
     }
   },
@@ -83,11 +86,7 @@
     "build:appx": "electron-builder -w appx --publish never",
     "build:pacman": "electron-builder -l pacman --publish never",
     "build:appimage": "electron-builder -l AppImage --publish never",
-    "pack": "electron-builder --dir",
-    "build": "electron-packager . japankana --platform win32 --arch x64 --icon=japankana256.ico --overwrite --asar --out dist/",
-    "package": "electron-installer-windows --src dist/japankana-win32-x64/ --icon=japankana256.ico --dest dist/installers/",
-    "make": "electron-forge make",
-    "import": "electron-forge import"
+    "pack": "electron-builder --dir"
   },
   "repository": {
     "type": "git",
