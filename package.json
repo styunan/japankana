@@ -22,6 +22,7 @@
       "!**/node_modules/.bin",
       "!**/node_modules/eslint*",
       "!**/node_modules/electron-installer-debian",
+      "!**/node_modules/electron-osx-sign",
       "!**/node_modules/electron-installer-redhat",
       "!**/node_modules/electron-packager",
       "!**/node_modules/electron-winstaller",
@@ -45,7 +46,7 @@
         "target": "default",
         "arch": ["arm64", "x64"]
       },
-      "icon": "assets/icons/japankana256.ico",
+      "icon": "assets/icons/japankana512.png",
       "category": "Japanese Kanji to Katakana"
     },
     "nsis": {
