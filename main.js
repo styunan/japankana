@@ -55,4 +55,3 @@ app.on("window-all-closed", () => {
   }
 });
 
-app.setUserTasks([]);
