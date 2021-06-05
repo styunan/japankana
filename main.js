@@ -19,9 +19,9 @@ function createWindow() {
     defaultWidth: 270,
     defaultHeight: 102,
   });
-  let iconUri = "assets/icons/japankana.ico";
-  if (process.platform === "linux") {
-    iconUri = "assets/icons/japankana256×256.png";
+  let iconUri = "assets/icons/japankana256×256.png";
+  if (process.platform === "win32") {
+    iconUri = "assets/icons/japankana.ico";
   }
   const win = new BrowserWindow({
     width: mainWindowState.width,
