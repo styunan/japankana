@@ -19,6 +19,10 @@ function createWindow() {
     defaultWidth: 270,
     defaultHeight: 102,
   });
+  let iconUri = "assets/icons/japankana.ico";
+  if (process.platform === "linux") {
+    iconUri = "assets/icons/japankana256×256.png";
+  }
   const win = new BrowserWindow({
     width: mainWindowState.width,
     height: mainWindowState.height,
@@ -26,7 +30,7 @@ function createWindow() {
     maxWidth: width,
     autoHideMenuBar: true,
     zoomToPageWidth: false,
-    icon: path.join(__dirname, "assets/icons/japankana.ico"),
+    icon: path.join(__dirname, iconUri),
     webPreferences: {
       devTools: false,
       nodeIntegration: true,
