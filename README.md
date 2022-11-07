@@ -1,1 +1,1 @@
-# japankana
+# japankana app
